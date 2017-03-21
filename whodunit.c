@@ -7,6 +7,8 @@
 
 #include "bmp.h"
 
+void decode(RGBTRIPLE*);
+
 int main(int argc, char *argv[])
 {
     // ensure proper usage
@@ -75,6 +77,8 @@ int main(int argc, char *argv[])
 
             // read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
+            
+            decode(&triple);
 
             // write RGB triple to outfile
             fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
@@ -98,4 +102,11 @@ int main(int argc, char *argv[])
 
     // success
     return 0;
+}
+
+void decode(RGBTRIPLE *triple){
+    RGBTRIPLE pixel=*triple;
+    pixel.rgbtGreen=0x00;
+    pixel.rgbtBlue=0x00;
+    *triple=pixel;
 }
