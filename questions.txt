@@ -1,12 +1,21 @@
-1.  TODO
-2.  TODO
-3.  TODO
-4.  TODO
-5.  TODO
-6.  TODO
-7.  TODO
-8.  TODO
-9.  TODO
-10. TODO
-11. TODO
-12. TODO
+1.  This header defines a set of integral type aliases with specific width requirements,
+    along with macros specifying their limits and macro functions to create values of these types.
+2.  That is to save memory space. we only require 8 bits and we need to access 8 bits individually.
+3.  BYTE->1 Byte
+    DWORD->4 Bytes
+    LONG->4 Bytes
+    WORD->2 Bytes
+4.  0x4d42 This specifies a BMP file type.
+5.  bfSize is the total size of the image file including the metadata.
+    biSize is the size occupied by the pixels and padding.
+6.  negative biHeight means the origin is the top left corner.
+    positive biHeight means the first triplet refers to the pixel in the lower left corner. 
+7.  biBitCount.
+8.  if fopen fails it will return NULL. 
+    in line 24 it might happen due to non existance of infile.
+    in line 32 it might be due to an invalid file name or directory.
+9.  the third argument specifies the number of elements to be read.
+    Since we are reading pixel by pixel, it is 1.
+10. 3
+11. It moves the file pointer in argument 1 by number of bytes specified in arg 2 from the pointer in arg 3.
+12. The current position of the corresponding pointer.
